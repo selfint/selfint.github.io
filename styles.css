@@ -651,10 +651,6 @@ video {
   border-width: 1px;
 }
 
-.border-2 {
-  border-width: 2px;
-}
-
 .border-b {
   border-bottom-width: 1px;
 }
@@ -668,10 +664,6 @@ video {
   padding-inline-end: 0.75rem;
 }
 
-.pe-\[1cm\] {
-  padding-inline-end: 1cm;
-}
-
 .ps-3 {
   padding-inline-start: 0.75rem;
 }
@@ -680,8 +672,8 @@ video {
   padding-inline-start: 2rem;
 }
 
-.ps-\[1cm\] {
-  padding-inline-start: 1cm;
+.pt-\[0\.5cm\] {
+  padding-top: 0.5cm;
 }
 
 .text-center {
