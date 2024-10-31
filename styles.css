@@ -725,6 +725,18 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:border-2 {
+    border-width: 2px;
+  }
+
+  .sm\:pe-\[1cm\] {
+    padding-inline-end: 1cm;
+  }
+
+  .sm\:ps-\[1cm\] {
+    padding-inline-start: 1cm;
+  }
+
   .sm\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
