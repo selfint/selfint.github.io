@@ -12,11 +12,18 @@
       .font-caps {
         font-variant: small-caps;
       }
+
+      @media print {
+        main {
+          /* remove border */
+          border: none;
+        }
+      }
     </style>
   </head>
-  <body class="flex flex-row justify-center h-fit w-full">
+  <body class="flex flex-row justify-center h-fit w-full mb-8">
     <main
-      class="max-w-[21cm] sm:text-sm text-xs h-fit w-full pt-5 ps-7 pe-7 sm:pt-10 sm:ps-14 sm:pe-14"
+      class="max-w-[19cm] border-2 border-black pe-[1cm] ps-[1cm] sm:text-sm text-xs h-[27.75cm] w-full"
     >
       <!-- Title -->
       <div
@@ -26,16 +33,20 @@
           <p>Israel</p>
         </div>
         <h1
-          class="text-xl sm:text-4xl text-center font-caps font-semibold tracking-widest"
+          class="text-xl sm:text-3xl text-center text-nowrap font-caps font-semibold tracking-widest"
         >
           Tom Selfin
         </h1>
         <div class="text-end">
           <p>
-            <a href="https://github.com/selfint">github.com/selfint</a>
+            <a class="hover:bg-yellow-100" href="https://github.com/selfint">
+              github.com/selfint
+            </a>
           </p>
           <p>
-            <a href="mailto:selfint@gmail.com">selfint@gmail.com</a>
+            <a class="hover:bg-yellow-100" href="mailto:selfint@gmail.com">
+              selfint@gmail.com
+            </a>
           </p>
         </div>
       </div>
@@ -53,14 +64,9 @@
         <ul class="list-disc list-outside ps-8 me-3 col-span-3">
           <li>
             Built an internal AI search product using LLMs, helping employees
-            access company knowledge. Helped non domain experts interact with
-            specialized data, increasing their productivity. Used Python,
-            Svelte, and Docker.
+            interact with cross-domain data. Increased company awareness to
+            business applications of gen-AI. Used Python, Svelte, and Docker.
           </li>
-          <!-- <li>
-            Increased company awareness to emerging generative AI technologies
-            and their business application.
-          </li> -->
           <li>
             Implemented distributed stress tests for third-party fraud detection
             and machine learning deployment products. Measured local and
@@ -102,11 +108,8 @@
         <ul class="list-disc list-outside ps-8 me-3 col-span-3">
           <li>
             Refactored the anomaly detection platform, reducing query sizes by
-            90%, and implementing a standardized framework for running
-            algorithms and visualizing results.
-          </li>
-          <li>
-            Researched and implemented both classical and novel algorithms.
+            90% by implementing a standardized framework. Researched and
+            implemented additional anomaly detection algorithms into the system.
           </li>
           <li>
             Created and taught a course on the anomaly detection system to over
@@ -130,7 +133,7 @@
         <ul class="list-disc list-outside ps-8 pe-3 col-span-3">
           <li>
             B.Sc in Computer Science, Machine Learning track. Expected
-            graduation in March 2026, current GPA: 93.
+            graduation in March 2026. GPA: 93
           </li>
           <li>
             Coursework: Deep Learning On Comp. Accelerators; Data Structures;
@@ -147,7 +150,7 @@
         <ul class="list-disc list-outside ps-8 pe-3 col-span-3">
           <li>
             B.Sc in Computer Science, Technion Computer Science Transfer track.
-            Evening classes during military service.
+            Studied during military service.
           </li>
         </ul>
         <!-- /Open University -->
@@ -182,7 +185,7 @@
             requirements. Developed in Typescript, Tailwind, and Svelte.
             Designed in Figma.
             <a
-              class="text-gray-500"
+              class="text-gray-500 hover:bg-yellow-100"
               href="https://degree-planner-two.vercel.app"
             >
               https://degree-planner-two.vercel.app
@@ -194,7 +197,7 @@
             trees, 1k+ users. Developed in Typescript, Svelte, and using Github
             Actions.
             <a
-              class="text-gray-500"
+              class="text-gray-500 hover:bg-yellow-100"
               href="https://github.com/selfint/code-blocks"
             >
               https://github.com/selfint/code-blocks
@@ -204,7 +207,10 @@
             <h4 class="font-semibold inline">Rust ML</h4>
             - Complete machine learning library written in Rust, for supervised
             and reinforcement learning, implemented as a learning exercise.
-            <a class="text-gray-500" href="https://github.com/selfint/rust-ml">
+            <a
+              class="text-gray-500 hover:bg-yellow-100"
+              href="https://github.com/selfint/rust-ml"
+            >
               https://github.com/selfint/rust-ml
             </a>
           </li>
@@ -229,7 +235,7 @@
         <h2
           class="ps-3 font-caps font-semibold col-span-3 border-b border-black"
         >
-          Military Awards
+          Awards
         </h2>
         <ul class="list-disc list-outside ps-8 pe-3 col-span-3">
           <li>
@@ -238,13 +244,13 @@
           </li>
           <li>
             <h4 class="font-semibold inline">First In Python</h4>
-            - Received during training for performance on Python tests, and
-            passion for the language.
+            - Received in course for performance on Python tests, and initiative
+            in projects.
           </li>
           <li>
             <h4 class="font-semibold inline">Mid Course Excellence</h4>
-            - Received during training for personal character, nominated by
-            course commanders.
+            - Received in course for personal character, nominated by course
+            commanders.
           </li>
         </ul>
       </div>
@@ -265,7 +271,7 @@
         </ul>
       </div>
       <!-- /Additional Experience and Awards -->
-      <div class="min-h-14"></div>
+      <!-- <div class="min-h-14"></div> -->
     </main>
   </body>
 </html>
