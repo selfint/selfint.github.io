@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles.css" />
     <title>Tom Selfin Resume</title>
     <style>
       body {
@@ -14,9 +14,9 @@
       }
     </style>
   </head>
-  <body class="flex flex-row justify-center w-full">
+  <body class="flex flex-row justify-center h-fit w-full">
     <main
-      class="max-w-screen-lg sm:text-sm text-xs leading-[1.25] w-full sm:mt-20 sm:m-14"
+      class="max-w-[21cm] sm:text-sm text-xs h-fit w-full pt-5 ps-7 pe-7 sm:pt-10 sm:ps-14 sm:pe-14"
     >
       <!-- Title -->
       <div
@@ -50,16 +50,17 @@
         <h3 class="font-semibold ps-3">Student Software Engineer</h3>
         <h3 class="font-semibold text-center">Shift4 Payments</h3>
         <h3 class="font-semibold pe-3 text-end">February 2022 - Present</h3>
-        <ul class="list-disc list-outside ps-5 ms-3 me-3 col-span-3">
+        <ul class="list-disc list-outside ps-8 me-3 col-span-3">
           <li>
             Built an internal AI search product using LLMs, helping employees
             access company knowledge. Helped non domain experts interact with
-            specialized data, increasing their productivity.
+            specialized data, increasing their productivity. Used Python,
+            Svelte, and Docker.
           </li>
-          <li>
+          <!-- <li>
             Increased company awareness to emerging generative AI technologies
             and their business application.
-          </li>
+          </li> -->
           <li>
             Implemented distributed stress tests for third-party fraud detection
             and machine learning deployment products. Measured local and
@@ -74,10 +75,10 @@
         <h3 class="font-semibold ps-3">Software Engineer</h3>
         <h3 class="font-semibold text-center">Israel Defense Force</h3>
         <h3 class="font-semibold pe-3 text-end">March 2018 - February 2022</h3>
-        <h4 class="ps-5 col-span-3">
-          Big data cyber defense system, contributed to Israel Defense prize
+        <h4 class="ps-3 col-span-3">
+          Big data cyber defense system, contributed to Israel Defense Prize
         </h4>
-        <ul class="list-disc list-outside ps-5 ms-3 me-3 col-span-3">
+        <ul class="list-disc list-outside ps-8 me-3 col-span-3">
           <li>
             Designed and implemented cyber defense system using microservices
             for real-time processing of big data. Used Python, Kubernetes,
@@ -97,8 +98,8 @@
             technical insight.
           </li>
         </ul>
-        <h4 class="ps-5 mt-1">Anomaly detection platform</h4>
-        <ul class="list-disc list-outside ps-5 ms-3 me-3 col-span-3">
+        <h4 class="ps-3 mt-1">Anomaly detection platform</h4>
+        <ul class="list-disc list-outside ps-8 me-3 col-span-3">
           <li>
             Refactored the anomaly detection platform, reducing query sizes by
             90%, and implementing a standardized framework for running
@@ -126,11 +127,11 @@
         <h3 class="font-semibold ps-3">Haifa, Israel</h3>
         <h3 class="font-semibold text-center">Technion</h3>
         <h3 class="font-semibold pe-3 text-end">June 2023 - Present</h3>
-        <ul class="list-disc list-outside ms-3 ps-5 pe-3 col-span-3">
+        <ul class="list-disc list-outside ps-8 pe-3 col-span-3">
           <li>
-            B.Sc in Computer Science, Machine Learning and Data Analysis track.
+            B.Sc in Computer Science, Machine Learning track. Expected
+            graduation in March 2026, current GPA: 93.
           </li>
-          <li>Expected graduation in March 2026, current GPA: 93.</li>
           <li>
             Coursework: Deep Learning On Comp. Accelerators; Data Structures;
             Numerical Algorithms; Advanced Probability; Linear Algebra; Intro To
@@ -143,7 +144,7 @@
         <h3 class="font-semibold ps-3">Haifa, Israel</h3>
         <h3 class="font-semibold text-center">Open University</h3>
         <h3 class="font-semibold pe-3 text-end">October 2020 - June 2023</h3>
-        <ul class="list-disc list-outside ms-3 ps-5 pe-3 col-span-3">
+        <ul class="list-disc list-outside ps-8 pe-3 col-span-3">
           <li>
             B.Sc in Computer Science, Technion Computer Science Transfer track.
             Evening classes during military service.
@@ -155,7 +156,7 @@
         <h3 class="font-semibold ps-3">Israel</h3>
         <h3 class="font-semibold text-center">Cyber Defense Course - IDF</h3>
         <h3 class="font-semibold pe-3 text-end">March 2018 - July 2018</h3>
-        <ul class="list-disc list-outside ms-3 ps-5 pe-3 col-span-3">
+        <ul class="list-disc list-outside ps-8 pe-3 col-span-3">
           <li>
             Won the First In Python Award, and the Mid Course Excellence Award
             For Personal Character.
@@ -174,7 +175,7 @@
         </h2>
         <!-- Projects -->
         <h3 class="font-semibold ps-3 col-span-3">Projects</h3>
-        <ul class="list-disc list-outside ms-3 ps-5 pe-3 col-span-3">
+        <ul class="list-disc list-outside ps-8 pe-3 col-span-3">
           <li>
             <h4 class="font-semibold inline">Degree Planner</h4>
             - Website for planning Technion degree, checks course and degree
@@ -212,7 +213,7 @@
         <div class="col-span-3 h-2"></div>
         <!-- Freelance -->
         <h3 class="font-semibold ps-3 col-span-3">Freelance</h3>
-        <ul class="list-disc list-outside ms-3 ps-5 pe-3 col-span-3">
+        <ul class="list-disc list-outside ps-8 pe-3 col-span-3">
           <li>
             <h4 class="font-semibold inline">Endocrine</h4>
             - Contracted to build a high performance algo-trading product,
@@ -230,7 +231,7 @@
         >
           Military Awards
         </h2>
-        <ul class="list-disc list-outside ms-3 ps-5 pe-3 col-span-3">
+        <ul class="list-disc list-outside ps-8 pe-3 col-span-3">
           <li>
             <h4 class="font-semibold inline">Israel Defense Prize</h4>
             - For work on cyber defense system.
@@ -255,11 +256,11 @@
         >
           Languages and Technologies
         </h2>
-        <ul class="list-disc list-outside ms-3 ps-5 pe-3 col-span-3">
-          <li>Python; HTML/CSS/JS; Svelte; Rust; C++; Java; SQL;</li>
+        <ul class="list-disc list-outside ps-8 pe-3 col-span-3">
+          <li>Python; HTML/CSS/JS; Svelte; Rust; C/C++; Java; C#; SQL.</li>
           <li>
             Software Design; Linux; Cyber Security; Computer Networks; Docker;
-            Kubernetes; Kafka; CI/CD; GCP
+            Kubernetes; Kafka; CI/CD; GCP.
           </li>
         </ul>
       </div>
