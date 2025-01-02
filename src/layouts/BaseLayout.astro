@@ -18,7 +18,7 @@ const pages = [
     <title>{pageTitle}</title>
   </head>
   <body class="h-full w-full flex justify-center">
-    <div class="min-w-fit m-2 max-w-3xl flex-grow">
+    <div class="w-full m-2 max-w-3xl flex-grow">
       <header>
         <nav class="bg-gray-400 pe-1 ps-1 flex flex-row justify-between">
           <div>
@@ -35,7 +35,7 @@ const pages = [
           </div>
         </nav>
       </header>
-      <main>
+      <main class="prose">
         <slot />
       </main>
     </div>

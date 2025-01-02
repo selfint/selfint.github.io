@@ -4,21 +4,39 @@ const pageTitle = "My Personal Blog";
 const allPosts = Object.values(
   import.meta.glob("./posts/*.md", { eager: true })
 );
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+function sortPosts(a: any, b: any): number {
+  return (
+    new Date(a.frontmatter.pubDate).getTime() -
+    new Date(b.frontmatter.pubDate).getTime()
+  );
+}
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <p>
-    Mainly about programming and philosophy. The goal is to get
-    better at
+    Mainly about programming and philosophy. The goal is to get better at
     <a href="https://paulgraham.com/writes.html">thinking by writing</a>.
   </p>
   <h2 class="mt-2 font-bold">Posts</h2>
-  <div class="grid grid-cols-2">
+  <ul>
     {
-      allPosts.map((post: any) => (
-          <a href={post.url}>{post.frontmatter.title}</a>
-          <p class="truncate me-2">{post.frontmatter.tags.join(', ')}</p>
+      allPosts.toSorted(sortPosts).map((post: any) => (
+        <li>
+          <a href={post.url} class="overflow-hidden me-2">
+            {formatDate(post.frontmatter.pubDate)}: {post.frontmatter.title}
+          </a>
+        </li>
       ))
     }
-  </div>
+  </ul>
 </BaseLayout>
