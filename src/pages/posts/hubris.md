@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "How humility turns into hubris"
 pubDate: 2025-01-02
-description: "Why even the most humble person can get fall into the trap of hubris."
+description: "Why even the most humble person can fall into the trap of hubris."
 author: "Tom Selfin"
 tags: ["thoughts"]
 ---
