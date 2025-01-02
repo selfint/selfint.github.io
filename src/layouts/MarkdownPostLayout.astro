@@ -9,11 +9,11 @@ const { frontmatter } = Astro.props;
       {frontmatter.title}
     </h1>
     <p class="fix">
-      Published {frontmatter.pubDate.slice(0, 10)}:
-      <em>
-        {frontmatter.description}
-      </em>
+      Published {frontmatter.pubDate.slice(0, 10)}
     </p>
+    <em>
+      {frontmatter.description}
+    </em>
     <slot />
   </article>
 </BaseLayout>
