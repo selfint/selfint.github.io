@@ -24,7 +24,7 @@ const pages = [
           <div>
             <a href="/">Tom Selfin</a>
           </div>
-          <div class="flex flex-row gap-x-1">
+          <div class="flex flex-row gap-x-3">
             {
               pages.map(([p, t]) => (
                 <a class={page === p ? "underline" : ""} href={p}>
@@ -35,7 +35,7 @@ const pages = [
           </div>
         </nav>
       </header>
-      <main class="prose">
+      <main class="prose m-1">
         <slot />
       </main>
     </div>
