@@ -5,7 +5,7 @@ export async function GET(context) {
     title: "Tom Selfin | Blog",
     description: "My personal blog",
     site: context.site,
-    items: await pagesGlobToRssItems(import.meta.glob("./**/*.md")),
+    items: await pagesGlobToRssItems(import.meta.glob("./**/posts/*.md")),
     customData: `<language>en-us</language>`,
   });
 }

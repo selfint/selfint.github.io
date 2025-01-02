@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import rss from "../assets/rss.svg";
 const pageTitle = "My Personal Blog";
 const allPosts = Object.values(
   import.meta.glob("./posts/*.md", { eager: true })
@@ -27,7 +28,17 @@ function sortPosts(a: any, b: any): number {
     Mainly about programming and philosophy. The goal is to get better at
     <a href="https://paulgraham.com/writes.html">thinking by writing</a>.
   </p>
-  <h2 class="mt-2 font-bold">Posts</h2>
+  <h2 class="items-center gap-x-2 flex flex-row">
+    <span> Posts </span>
+    <a
+      href="/rss.xml"
+      target="_blank"
+      class="flex flex-col"
+      rel="noopener noreferrer"
+    >
+      <img src={rss.src} alt="RSS Feed" class="inline-block h-6 m-0 w-6" />
+    </a>
+  </h2>
   <ul>
     {
       allPosts.toSorted(sortPosts).map((post: any) => (
