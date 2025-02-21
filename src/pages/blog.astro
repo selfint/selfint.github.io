@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import rss from "../assets/rss.svg";
 import { Image } from "astro:assets";
-const pageTitle = "My Personal Blog";
 const allPosts = Object.values(
   import.meta.glob("./posts/*.md", { eager: true })
 );
@@ -24,7 +23,7 @@ function sortPosts(a: any, b: any): number {
 }
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={"Blog"}>
   <p>
     Mainly about programming, personal projects, and thoughts. The goal is to
     get better at
