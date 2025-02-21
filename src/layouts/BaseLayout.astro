@@ -3,7 +3,7 @@ const { pageTitle } = Astro.props;
 const page = new URL(Astro.request.url).pathname;
 
 const pages = [
-  ["/projects", "Projects"],
+  ["/projects/", "Projects"],
   ["/resume/", "Resume"],
   ["/blog/", "Blog"],
 ] as const;
