@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import rss from "../assets/rss.svg";
+import { Image } from "astro:assets";
 const pageTitle = "My Personal Blog";
 const allPosts = Object.values(
   import.meta.glob("./posts/*.md", { eager: true })
@@ -37,7 +38,7 @@ function sortPosts(a: any, b: any): number {
       class="flex flex-col"
       rel="noopener noreferrer"
     >
-      <img src={rss.src} alt="RSS Feed" class="inline-block h-6 m-0 w-6" />
+      <Image src={rss} alt="RSS Feed" class="inline-block h-6 m-0 w-6" />
     </a>
   </h2>
   <ul>

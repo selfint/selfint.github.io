@@ -9,4 +9,4 @@ tags: []
 
 ## My personal site
 
-Links: [GitHub](https://www.github.com/selfint), [LinkedIn](https://www.linkedin.com/in/selfint).
+Links: [GitHub](https://www.github.com/selfint), [LinkedIn](https://www.linkedin.com/in/selfint), [Medium](https://medium.com/@selfint).

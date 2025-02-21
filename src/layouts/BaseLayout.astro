@@ -3,7 +3,7 @@ const { pageTitle } = Astro.props;
 const page = new URL(Astro.request.url).pathname;
 
 const pages = [
-  ["/", "Home"],
+  ["/projects", "Projects"],
   ["/resume/", "Resume"],
   ["/blog/", "Blog"],
 ] as const;
@@ -20,7 +20,7 @@ const pages = [
   <body class="h-full w-full flex justify-center">
     <div class="w-full m-2 max-w-3xl flex-grow">
       <header>
-        <nav class="bg-gray-400 pe-1 ps-1 flex flex-row justify-between">
+        <nav class="bg-gray-400 pe-2 ps-2 flex flex-row justify-between">
           <div>
             <a href="/">Tom Selfin</a>
           </div>
