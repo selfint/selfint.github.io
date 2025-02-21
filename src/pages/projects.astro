@@ -91,12 +91,11 @@ const allProjects = [
       Implementation of the NEAT algorithm from the paper
       <a
         target="_blank"
-        class="inline-flex"
         href="http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf"
       >
       "Evolving Neural Networks through Augmenting Topologies"
-      (Stanley, 2002)
-      </a>.
+      (Stanley, 2002).
+      </a>
     `,
   },
 ] as const;
@@ -124,9 +123,9 @@ const allProjects = [
               {date}: {repo}
             </a>
             - <div set:html={description} class="inline" />
-            <div class="gap-x-2 flex">
+            <div class="gap-x-2 flex flex-wrap">
               {tags.map((tag) => (
-                <span class="text-sm bg-neutral-300 dark:bg-neutral-600 ps-1 pe-1 inline-flex flex-row justify-center font-mono rounded-md">
+                <span class="text-sm bg-neutral-300 mb-2 text-nowrap dark:bg-neutral-600 ps-1 pe-1 inline-flex flex-row justify-center font-mono rounded-md">
                   <span>{tag}</span>
                 </span>
               ))}
