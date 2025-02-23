@@ -7,4 +7,7 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://selfint.github.io",
   integrations: [tailwind()],
+  redirects: {
+    projects: "/",
+  },
 });

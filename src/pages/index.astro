@@ -102,13 +102,23 @@ const allProjects = [
 ---
 
 <BaseLayout pageTitle="Projects">
+  <h2>My personal site</h2>
   <p>
-    A list of some of my projects, all of which can be found at
-    <a href="https://github.com/selfint">github.com/selfint</a>.
+    Hi! My name is Tom Selfin, and online I go by <code>selfint</code>. You can
+    find me on:
+    <ul>
+      <li><a href="https://www.github.com/selfint">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/selfint">LinkedIn</a></li>
+      <li><a href="https://medium.com/@selfint">Medium</a></li>
+    </ul>
   </p>
   <h2 class="items-center mb-0 gap-x-2 flex flex-row">
     <span> Projects </span>
   </h2>
+  <p>
+    A list of some of my projects, all of which can be found at
+    <a href="https://github.com/selfint">github.com/selfint</a>.
+  </p>
   <ul>
     {
       allProjects
@@ -132,7 +142,7 @@ const allProjects = [
             </div>
             <div>
               {assets.map(([src, alt]) => (
-                <img class="max-w-full pe-2" src={src} alt={alt} />
+                <img loading="lazy" class="w-full pe-2" src={src} alt={alt} />
               ))}
             </div>
           </li>
