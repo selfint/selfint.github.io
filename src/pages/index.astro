@@ -1,124 +1,47 @@
 ---
+import Project from "../components/Project.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 
-function sortDates(a: any, b: any): number {
-  return new Date(b.date).getTime() - new Date(a.date).getTime();
+import rss from "../assets/rss.svg";
+const allPosts = Object.values(
+  import.meta.glob("./posts/*.md", { eager: true }),
+);
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
 }
 
-const allProjects = [
-  {
-    repo: "code-blocks",
-    date: "2023-02-08",
-    tags: ["VSCode", "Extension", "TypeScript"],
-    assets: [
-      [
-        "https://raw.githubusercontent.com/selfint/code-blocks/main/assets/editor/Code%20Blocks%20Demo%20-%20Editor%20-%20svelte%201.gif",
-        "Move code elements with point and click interface",
-      ],
-    ],
-    description: `
-      VSCode extension for editing code using the syntax tree directly.
-    `,
-  },
-  {
-    repo: "degree-planner",
-    date: "2024-05-25",
-    tags: ["Web", "SvelteKit", "UI"],
-    assets: [
-      [
-        "https://raw.githubusercontent.com/selfint/degree-planner/refs/heads/main/src/lib/assets/gifs/plan-pic.png",
-        "Course scheduler with Trello-like interface",
-      ],
-    ],
-    description: `
-      Degree planner for a Technion degree. Supports Trello-like interface for
-      planning courses and checking requirements.
-    `,
-  },
-  {
-    repo: "lsp-outside-the-editor",
-    date: "2025-02-21",
-    tags: ["Rust", "Language Server Protocol", "CLI"],
-    assets: [
-      [
-        "https://raw.githubusercontent.com/selfint/lsp-outside-the-editor/refs/heads/main/out.svg",
-        "A visualization of a simple Rust project.",
-      ],
-    ],
-    description: `
-      Using the Language Server Protocol to create a visualization of any code
-      repository, in any language.
-    `,
-  },
-  {
-    repo: "wikitool",
-    date: "2024-01-09",
-    tags: ["Python", "LLM", "Semantic search"],
-    assets: [],
-    description: `
-      Small Python library for connecting the Wikipedia API to an LLM.
-    `,
-  },
-  {
-    repo: "ltsa",
-    date: "2023-03-24",
-    tags: ["Rust", "Tree-sitter", "Language Server Protocol"],
-    assets: [],
-    description: `
-      Static analysis tools leveraging LSP and tree-sitter.
-    `,
-  },
-  {
-    repo: "rust-ml",
-    date: "2021-01-11",
-    tags: [
-      "Rust",
-      "Machine Learning",
-      "Neural Network",
-      "Reinforcement learning",
-    ],
-    assets: [],
-    description: `
-      Rust machine learning library.
-    `,
-  },
-  {
-    repo: "NEAT",
-    date: "2018-06-08",
-    tags: ["Python", "Neural Network", "Reinforcement learning"],
-    assets: [],
-    description: `
-      Implementation of the NEAT algorithm from the paper
-      <a
-        target="_blank"
-        href="http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf"
-      >
-      "Evolving Neural Networks through Augmenting Topologies"
-      (Stanley, 2002).
-      </a>
-    `,
-  },
-] as const;
+function sortPosts(a: any, b: any): number {
+  return (
+    new Date(a.frontmatter.pubDate).getTime() -
+    new Date(b.frontmatter.pubDate).getTime()
+  );
+}
 ---
 
-<BaseLayout pageTitle="Projects">
-  <h2>My personal site</h2>
+<BaseLayout>
   <p>
-    Hi! My name is Tom Selfin, and online I go by <code>selfint</code>. You can
-    find me on:
+    Welcome to my personal site! My name is Tom Selfin and online I go by
+    <code>selfint</code>, you can find me on:
     <ul>
       <li>
         <img
           src="https://github.githubassets.com/favicons/favicon-dark.png"
           loading="lazy"
           alt="GitHub favicon"
-          class="w-4 h-4 m-0 p-0 align-middle mr-1 dark:inline hidden"
+          class="m-0 mr-1 hidden h-4 w-4 p-0 align-middle dark:inline"
         />
         <img
           src="https://github.githubassets.com/favicons/favicon.png"
           loading="lazy"
           alt="GitHub favicon"
-          class="w-4 h-4 m-0 p-0 align-middle mr-1 dark:hidden inline"
+          class="m-0 mr-1 inline h-4 w-4 p-0 align-middle dark:hidden"
         />
         <a href="https://www.github.com/selfint">github.com/selfint</a>
       </li>
@@ -127,7 +50,7 @@ const allProjects = [
           src="https://www.linkedin.com/favicon.ico"
           loading="lazy"
           alt="LinkedIn favicon"
-          class="w-4 h-4 m-0 p-0 align-middle mr-1 inline"
+          class="m-0 mr-1 inline h-4 w-4 p-0 align-middle"
         />
         <a href="https://www.linkedin.com/in/selfint">linkedin.com/in/selfint</a
         >
@@ -137,47 +60,132 @@ const allProjects = [
           src="https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19"
           loading="lazy"
           alt="Medium favicon"
-          class="w-4 h-4 m-0 p-0 align-middle mr-1 inline"
+          class="m-0 mr-1 inline h-4 w-4 p-0 align-middle"
         />
         <a href="https://medium.com/@selfint">medium.com/@selfint</a>
       </li>
+      <li>
+        <img
+          src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico"
+          loading="lazy"
+          alt="Gmail favicon"
+          class="m-0 mr-1 inline h-4 w-4 p-0 align-middle"
+        />
+        <a href="mailto:selfint@gmail.com">selfint@gmail.com</a>
+      </li>
     </ul>
   </p>
-  <h2 class="items-center mb-0 gap-x-2 flex flex-row">
-    <span> Projects </span>
-  </h2>
+  <h2 class="mb-0 flex flex-row items-center gap-x-2">Projects</h2>
   <p>
     A list of some of my projects, all of which can be found at
     <a href="https://github.com/selfint">github.com/selfint</a>.
   </p>
+  <ul class="list-inside p-0">
+    <Project
+      repo="lsp-outside-the-editor"
+      date="2025-02-21"
+      tags="Rust;Language Server Protocol;CLI"
+      src="https://raw.githubusercontent.com/selfint/lsp-outside-the-editor/refs/heads/main/out.svg"
+      alt="A visualization of a simple Rust project."
+    >
+      Using the Language Server Protocol to create a visualization of any code
+      repository, in any language. The goal was to write an article on how LSP
+      can be used in ways beyond it's original purpose. I wrote the article as a <a
+        target="_blank"
+        href="https://medium.com/@selfint/lsp-outside-the-editor-431f77a9a4be"
+        >Medium blog</a
+      >.
+    </Project>
+    <Project
+      repo="degree-planner"
+      date="2024-05-25"
+      tags="Web;SvelteKit;UI"
+      src="https://raw.githubusercontent.com/selfint/degree-planner/refs/heads/main/src/lib/assets/gifs/plan-pic.png"
+      alt="Course scheduler with Trello-like interface"
+    >
+      Degree planner for a Technion degree. Supports Trello-like interface for
+      planning courses and checking requirements. While persuing my Technion
+      degree I found there was no platform that checks course requirements and
+      supports planning future semesters. With over 200 hundred courses to
+      choose from, I built this site to find courses that interest me, and
+      planned ahead to fulfill their requirements. The site is live at
+      <a target="_blank" href="https://tech-planit.vercel.app/"
+        >https://tech-planit.vercel.app</a
+      >.
+    </Project>
+    <Project
+      repo="wikitool"
+      date="2024-01-09"
+      tags="Python;LLM;Semantic search"
+    >
+      Small Python library for connecting the Wikipedia API to an LLM.
+    </Project>
+    <Project
+      repo="ltsa"
+      date="2023-03-24"
+      tags="Rust;Language Server Protocol;Tree-sitter"
+    >
+      Static analysis tools leveraging LSP and tree-sitter.
+    </Project>
+    <Project
+      repo="code-blocks"
+      date="2023-02-08"
+      tags="VSCode;Extension;TypeScript"
+      src="https://raw.githubusercontent.com/selfint/code-blocks/main/assets/editor/Code%20Blocks%20Demo%20-%20Editor%20-%20svelte%201.gif"
+      alt="Move code elements with point and click interface"
+    >
+      VSCode extension for editing code using the syntax tree directly.
+    </Project>
+    <Project
+      repo="rust-ml"
+      date="2021-01-11"
+      tags="Rust;Reinforcement learning;Neural Network;"
+    >
+      Rust machine learning library.
+    </Project>
+    <Project
+      repo="NEAT"
+      date="2018-06-08"
+      tags="Python;Neural Network;Reinforcement learning"
+    >
+      Implementation of the NEAT algorithm from the paper:
+      <a
+        target="_blank"
+        class="inline"
+        href="http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf"
+      >
+        Evolving Neural Networks through Augmenting Topologies (Stanley, 2002)
+      </a>
+    </Project>
+  </ul>
+  <h2 class="mb-0 flex flex-row items-center gap-x-2">
+    Blog
+
+    <a
+      href="/rss.xml"
+      target="_blank"
+      class="flex flex-col"
+      rel="noopener noreferrer"
+    >
+      <Image src={rss} alt="RSS Feed" class="m-0 inline-block h-6 w-6" />
+    </a>
+  </h2>
+  <p>
+    Mainly about programming, personal projects, and thoughts. The goal is to
+    get better at
+    <a target="_blank" href="https://paulgraham.com/writes.html"
+      >thinking by writing</a
+    >.
+  </p>
   <ul>
     {
-      allProjects
-        .toSorted(sortDates)
-        .map(({ repo, date, description, assets, tags }) => (
-          <li class="mb-8">
-            <a
-              href={`https://github.com/selfint/${repo}`}
-              target="_blank"
-              class="inline-flex"
-            >
-              {date}: {repo}
-            </a>
-            - <div set:html={description} class="inline" />
-            <div class="gap-x-2 flex flex-wrap">
-              {tags.map((tag) => (
-                <span class="text-sm bg-neutral-300 mb-2 text-nowrap dark:bg-neutral-600 ps-1 pe-1 inline-flex flex-row justify-center font-mono rounded-md">
-                  <span>{tag}</span>
-                </span>
-              ))}
-            </div>
-            <div>
-              {assets.map(([src, alt]) => (
-                <img loading="lazy" class="w-full pe-2" src={src} alt={alt} />
-              ))}
-            </div>
-          </li>
-        ))
+      allPosts.toSorted(sortPosts).map((post: any) => (
+        <li>
+          <a href={post.url} class="me-2 overflow-hidden">
+            {formatDate(post.frontmatter.pubDate)}: {post.frontmatter.title}
+          </a>
+        </li>
+      ))
     }
   </ul>
 </BaseLayout>

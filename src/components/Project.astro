@@ -1,0 +1,45 @@
+---
+export type Props = {
+  repo: string;
+  date: string;
+  tags: string;
+  src?: string;
+  alt?: string;
+};
+
+const { repo, date, tags, src, alt } = Astro.props;
+---
+
+<li
+  class="mb-4 list-none rounded-md border border-neutral-400 p-4 pb-5 dark:border-neutral-500"
+>
+  <h2 class="m-0 mb-2 flex flex-row justify-between leading-none">
+    <a href={`https://github.com/selfint/${repo}`} target="_blank">
+      {repo}
+    </a>
+  </h2>
+  <p class="m-0 mb-1 p-0 leading-tight text-neutral-500 dark:text-neutral-400">
+    Started {date}
+  </p>
+  <slot />
+  <br />
+  {
+    tags.split(";").map((tag) => (
+      <span class="mr-2 inline-flex flex-row justify-center text-nowrap rounded-md bg-neutral-300 pe-1 ps-1 font-mono text-sm dark:bg-neutral-600">
+        <span>{tag}</span>
+      </span>
+    ))
+  }
+  {
+    src !== undefined && alt !== undefined ? (
+      <img
+        loading="lazy"
+        class="m-0 mt-2 w-full rounded-md bg-neutral-300 dark:bg-neutral-600"
+        src={src}
+        alt={alt}
+      />
+    ) : (
+      ""
+    )
+  }
+</li>
