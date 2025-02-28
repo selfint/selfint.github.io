@@ -24,7 +24,7 @@ const { repo, date, tags, src, alt } = Astro.props;
   <div>
     {
       tags.split(";").map((tag) => (
-        <span class="mr-2 inline-flex flex-row justify-center text-nowrap rounded-md bg-neutral-300 pe-1 ps-1 font-mono text-sm dark:bg-neutral-600">
+        <span class="mr-2 inline-flex flex-row justify-center text-nowrap rounded-md bg-neutral-300 pe-1 ps-1 font-mono text-sm dark:bg-neutral-700">
           <span>{tag}</span>
         </span>
       ))
@@ -35,7 +35,7 @@ const { repo, date, tags, src, alt } = Astro.props;
     src && alt && (
       <img
         loading="lazy"
-        class="m-0 mt-2 w-full rounded-md bg-neutral-300 dark:bg-neutral-600"
+        class="m-0 mt-2 w-full rounded-md bg-neutral-400 dark:bg-neutral-500"
         src={src}
         alt={alt}
       />
