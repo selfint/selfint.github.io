@@ -35,6 +35,7 @@ const { repo, date, tags, src, alt } = Astro.props;
     src && alt && (
       <img
         loading="lazy"
+        decoding="async"
         class="m-0 mt-2 w-full rounded-md bg-neutral-400 dark:bg-neutral-500"
         src={src}
         alt={alt}
